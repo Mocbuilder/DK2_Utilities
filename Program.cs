@@ -11,6 +11,8 @@ namespace DK2_Utils
             //Init some values and method instances
             GetSetUserLanguage();
 
+            Console.CursorVisible = true;
+
             SupplyEditor supplyEditor = new SupplyEditor(GetUserModsFolder());
 
             string[] options = new string[]
