@@ -9,8 +9,6 @@ namespace DK2_Utils
         static void Main(string[] args)
         {
             //Init some values and method instances
-
-
             GetSetUserLanguage();
 
             SupplyEditor supplyEditor = new SupplyEditor(GetUserModsFolder());
