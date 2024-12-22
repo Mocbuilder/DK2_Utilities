@@ -23,6 +23,7 @@ namespace DK2_Utils
 
         internal int GetUserInput()
         {
+            //get the new value from the user
             string userInput = Console.ReadLine();
 
             return 0;

@@ -4,26 +4,52 @@ namespace DK2_Utils
 {
     internal class Program
     {
+        static SharedFuncs shared = new SharedFuncs();
+
         static void Main(string[] args)
         {
-            SharedFuncs shared = new SharedFuncs();
-            string culture = GetSetUserLanguage();
+            //Init some values and method instances
 
-            SharedFuncs.culture = culture;
+
+            GetSetUserLanguage();
+
+            SupplyEditor supplyEditor = new SupplyEditor(GetUserModsFolder());
 
             string[] options = new string[]
             {
+                //get the culture specific strings
                 shared.GetLocalString("menuItem_supply"),
                 shared.GetLocalString("menuItem_iov"),
                 shared.GetLocalString("menuItem_exit")
             };
 
+            //Create menu instance and use it in an infinite loops
             Menu menu = new Menu(options);
-            menu.GetMenu();
+
+            while (true)
+            {
+                int userChoice = menu.GetMenu();
+
+                switch (userChoice)
+                {
+                    case 0:
+                        supplyEditor.EditSupply();
+                        break;
+                    case 1:
+                        Console.WriteLine("[PlaceHolder] IoV Tracer BugFix");
+                        Console.ReadLine();
+                        break;
+                    case 3:
+                        Environment.Exit(0);
+                        break;
+                }
+            }
+
         }
 
-        static string GetSetUserLanguage()
+        static void GetSetUserLanguage()
         {
+            //Ask the User what language he wants and set the culture string in shared appropriatly
             string culture;
 
             string[] languages = new string[]
@@ -36,6 +62,7 @@ namespace DK2_Utils
 
             int userChoice = langMenu.GetMenu();
 
+            //check user choice to appropriatly set the culture string
             switch (userChoice)
             {
                 case 0:
@@ -53,7 +80,22 @@ namespace DK2_Utils
                     break;
             }
 
-            return culture;
+            SharedFuncs.culture = culture;
+        }
+
+        public static string GetUserModsFolder()
+        {
+            while (true)
+            {
+                //ask for path to modsfolder and loop till its valid
+                Console.WriteLine(shared.GetLocalString("question_modsFolder"));
+                string path = Console.ReadLine();
+
+                if (Directory.Exists(path))
+                    return path;
+
+                Console.WriteLine("Invalid path.");
+            }
         }
     }
 }

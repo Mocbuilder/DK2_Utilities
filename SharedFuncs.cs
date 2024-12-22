@@ -13,6 +13,7 @@ namespace DK2_Utils
 
         public string GetLocalString(string name)
         {
+            //Get the requested string for the specified culture from the json file
             try
             {
                 var json = File.ReadAllText("localization.json");

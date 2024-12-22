@@ -17,6 +17,7 @@ namespace DK2_Utils
 
         public int GetMenu()
         {
+            //create menu and monitor input
             int selectedIndex = 0;
 
             Console.CursorVisible = false;
@@ -45,10 +46,12 @@ namespace DK2_Utils
 
         static void DisplayMenu(int selectedIndex)
         {
+            //Write the menu to the console
             for (int i = 0; i < menuItems.Length; i++)
             {
                 if (i == selectedIndex)
                 {
+                    //give special background and font colour when its the selected item
                     Console.BackgroundColor = ConsoleColor.Gray;
                     Console.ForegroundColor = ConsoleColor.Black;
                 }

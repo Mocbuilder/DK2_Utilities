@@ -2,11 +2,13 @@
   "en-GB": {
     "menuItem_supply": "Supply Editor",
     "menuItem_iov": "IoV Tracer Bugfix",
-    "menuItem_exit":  "Exit"
+    "menuItem_exit": "Exit",
+    "question_modsFolder": "Path to your mods folder:"
   },
   "de-GER": {
     "menuItem_supply": "Supply bearbeiten",
     "menuItem_iov": "IoV Leuchtspurmunition Fehlerbehebung",
-    "menuItem_exit": "Beenden"
+    "menuItem_exit": "Beenden",
+    "question_modsFolder": "Pfad zum mods Ordner:"
   }
 }
