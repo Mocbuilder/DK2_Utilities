@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -26,6 +27,25 @@ namespace DK2_Utils
                 Console.WriteLine(ex);
                 return "";
             }
+        }
+
+        public void SetAppSetting(string key, string value)
+        {
+            //update a value in app.config that already exists
+            Configuration config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+            
+            if (config.AppSettings.Settings[key] != null)
+            {
+                config.AppSettings.Settings[key].Value = value;
+            }
+            else
+            {
+                Console.WriteLine($"Key '{key}' not found.");
+            }
+            config.Save(ConfigurationSaveMode.Modified);
+
+            //refresh app.config in memory
+            ConfigurationManager.RefreshSection("appSettings");
         }
     }
 }
