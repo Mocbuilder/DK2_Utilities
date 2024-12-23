@@ -10,6 +10,8 @@ namespace DK2_Utils
 {
     public class SharedFuncs
     {
+        //public static string 
+
         public static string culture = "en-GB";
 
         public string GetLocalString(string name)
