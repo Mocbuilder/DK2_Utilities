@@ -114,7 +114,7 @@ namespace DK2_Utils
                 }
                     
 
-                Console.WriteLine("Invalid path.");
+                Console.WriteLine(shared.GetLocalString("invalid_path"));
             }
         }
     }

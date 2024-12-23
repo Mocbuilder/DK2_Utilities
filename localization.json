@@ -8,12 +8,19 @@
     "supplyEditor_fileUpdated": "Updated supply values in: ",
     "supplyEditor_fileNotUpdated": "No changes made in: ",
     "supplyEditor_fileError": "There was an error with ",
-    "supplyEditor_finished": "Finished editing Supply values."
+    "supplyEditor_finished": "Finished editing Supply values.",
+    "invalid_path": "Invalid path."
   },
   "de-GER": {
     "menuItem_supply": "Supply bearbeiten",
     "menuItem_iov": "IoV Leuchtspurmunition Fehlerbehebung",
     "menuItem_exit": "Beenden",
-    "question_modsFolder": "Pfad zum mods Ordner:"
+    "question_modsFolder": "Pfad zum mods Ordner:",
+    "supplyEditor_newSupplyValue": "Mehr darüner, wie die Supply-Werte mit den in-game Einheitspunkten zusammenhängen steht in der Dokumentationn.\nNeuer Supply-Wert:",
+    "supplyEditor_fileUpdated": "Supply-Werte geändert in: ",
+    "supplyEditor_fileNotUpdated": "Keine Modifizierungen in: ",
+    "supplyEditor_fileError": "Es gab einen Fehler mit ",
+    "supplyEditor_finished": "Supply-Werte erfolgreich modifiziert.",
+    "invalid_path": "Nicht valider Pfad."
   }
 }
