@@ -30,6 +30,7 @@ namespace DK2_Utils
             {
                 int userChoice = menu.GetMenu();
 
+                Console.CursorVisible = true;
                 switch (userChoice)
                 {
                     case 0:
@@ -39,9 +40,9 @@ namespace DK2_Utils
                         Console.WriteLine("[PlaceHolder] IoV Tracer BugFix");
                         Console.ReadLine();
                         break;
-                    case 3:
+                    case 2:
                         Environment.Exit(0);
-                        break;
+                        return;
                 }
             }
 

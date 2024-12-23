@@ -4,6 +4,7 @@ using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace DK2_Utils
 {
@@ -19,17 +20,19 @@ namespace DK2_Utils
 
         public void EditSupply() 
         {
-            int newValue = GetUserInput();
+            string newValue = GetUserInput();
 
             string[] files = Directory.GetFiles(rootModsFolder, "*.xml", SearchOption.AllDirectories);
             
             foreach (string filePath in files)
             {
-                XMLFile_SR(filePath, "", "");
+                UpdateSupplyValue(filePath, newValue);
             }
+            Console.WriteLine("Finished editing Supply values.");
+            Console.ReadLine();
         }
 
-        internal int GetUserInput()
+        internal string GetUserInput()
         {
             while (true)
             {
@@ -43,32 +46,54 @@ namespace DK2_Utils
                 {
                     newValue = Convert.ToInt32(userInput);
                     if (newValue < 0)
-                        return 0;
+                        return "0";
                 }
                 catch (Exception ex)
                 {
                     Console.WriteLine(ex);
                 }
 
-                return newValue;
+                return newValue.ToString();
             }
         }
 
-        internal void XMLFile_SR(string filePath, string search, string replace)
+        internal void UpdateSupplyValue(string filePath, string newSupplyValue)
         {
-            //search the file, replace if something is found and log accordingly
-            string text = File.ReadAllText(filePath);
-
-            string modifiedText = text.Replace(search, replace);
-
-            if (text.StartsWith(modifiedText))
+            try
             {
-                Console.WriteLine($"Nothing found at: {filePath}");
-                return;
-            }   
+                //load xml file and find the supply attribute, replace and log accordingly
+                XDocument xmlDoc = XDocument.Load(filePath);
 
-            File.WriteAllText(filePath, modifiedText);
-            Console.WriteLine($"Replaced target text at: {filePath}");
+                var classElements = xmlDoc.Descendants("Class")
+                                          .Where(e => e.Attribute("supply") != null);
+
+                bool changesMade = false;
+
+                foreach (var classElement in classElements)
+                {
+                    string oldSupplyValue = classElement.Attribute("supply")?.Value;
+                    if (oldSupplyValue != newSupplyValue)
+                    {
+                        classElement.SetAttributeValue("supply", newSupplyValue);
+                        changesMade = true;
+                    }
+                }
+
+                //saven the updated xml
+                if (changesMade)
+                {
+                    xmlDoc.Save(filePath);
+                    Console.WriteLine($"Updated supply values in: {filePath}");
+                }
+                else
+                {
+                    Console.WriteLine($"No changes made in: {filePath}");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error processing file {filePath}: \n{ex}");
+            }
         }
     }
 }
