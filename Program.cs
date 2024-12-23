@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json.Linq;
+using System.Configuration;
 
 namespace DK2_Utils
 {
@@ -8,12 +9,23 @@ namespace DK2_Utils
 
         static void Main(string[] args)
         {
-            //Init some values and method instances
-            GetSetUserLanguage();
+            SupplyEditor supplyEditor = null;
+
+            //Init some values and method instances if its first launch
+            if (ConfigurationManager.AppSettings["firstLaunch"] == "true")
+            {
+                //its the first launch
+                GetSetUserLanguage();
+                supplyEditor = new SupplyEditor(GetUserModsFolder(), shared);
+            }
+            else
+            {
+                //its not the first launch
+                SharedFuncs.culture = ConfigurationManager.AppSettings["culture_string"];
+                supplyEditor = new SupplyEditor(GetUserModsFolder(), shared);
+            }
 
             Console.CursorVisible = true;
-
-            SupplyEditor supplyEditor = new SupplyEditor(GetUserModsFolder(), shared);
 
             string[] options = new string[]
             {
@@ -82,6 +94,7 @@ namespace DK2_Utils
             }
 
             SharedFuncs.culture = culture;
+            ConfigurationManager.AppSettings["culture_string"] = culture;
         }
 
         public static string GetUserModsFolder()
@@ -93,7 +106,11 @@ namespace DK2_Utils
                 string path = Console.ReadLine();
 
                 if (Directory.Exists(path))
+                {
+                    ConfigurationManager.AppSettings["costumModsFolder"] = path;
                     return path;
+                }
+                    
 
                 Console.WriteLine("Invalid path.");
             }
