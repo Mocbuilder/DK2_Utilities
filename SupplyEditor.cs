@@ -10,11 +10,13 @@ namespace DK2_Utils
 {
     public class SupplyEditor
     {
-        public string rootModsFolder { get; set; }
+        internal string rootModsFolder { get; set; }
+        internal SharedFuncs shared { get; set; }
 
-        public SupplyEditor(string _rootModsFolder)
+        public SupplyEditor(string _rootModsFolder, SharedFuncs _shared)
         {
             rootModsFolder = _rootModsFolder;
+            shared = _shared;
         }
 
 
@@ -28,7 +30,7 @@ namespace DK2_Utils
             {
                 UpdateSupplyValue(filePath, newValue);
             }
-            Console.WriteLine("Finished editing Supply values.");
+            Console.WriteLine(shared.GetLocalString("supplyEditor_finished"));
             Console.ReadLine();
         }
 
@@ -37,7 +39,7 @@ namespace DK2_Utils
             while (true)
             {
                 //get the new value from the user
-                Console.WriteLine("To learn how the values relate to the unit points in-game, please read the documentation\nEnter the new supply value:");
+                Console.WriteLine(shared.GetLocalString("supplyEditor_newSupplyValue"));
 
                 string userInput = Console.ReadLine();
                 int newValue = 0;
@@ -83,16 +85,16 @@ namespace DK2_Utils
                 if (changesMade)
                 {
                     xmlDoc.Save(filePath);
-                    Console.WriteLine($"Updated supply values in: {filePath}");
+                    Console.WriteLine(shared.GetLocalString("supplyEditor_fileUpdated") + filePath);
                 }
                 else
                 {
-                    Console.WriteLine($"No changes made in: {filePath}");
+                    Console.WriteLine(shared.GetLocalString("supplyEditor_fileNotUpdated") + filePath);
                 }
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Error processing file {filePath}: \n{ex}");
+                Console.WriteLine(shared.GetLocalString("supplyEditor_fileError") + $"{filePath}: \n{ex}\n");
             }
         }
     }

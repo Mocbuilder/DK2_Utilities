@@ -13,7 +13,7 @@ namespace DK2_Utils
 
             Console.CursorVisible = true;
 
-            SupplyEditor supplyEditor = new SupplyEditor(GetUserModsFolder());
+            SupplyEditor supplyEditor = new SupplyEditor(GetUserModsFolder(), shared);
 
             string[] options = new string[]
             {
