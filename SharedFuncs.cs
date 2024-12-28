@@ -10,8 +10,6 @@ namespace DK2_Utils
 {
     public class SharedFuncs
     {
-        //public static string 
-
         public static string culture = "en-GB";
 
         public string GetLocalString(string name)
@@ -42,7 +40,7 @@ namespace DK2_Utils
             }
             else
             {
-                Console.WriteLine($"Key '{key}' not found.");
+                GetLocalString("setAppSetting_keyNotFound");
             }
             config.Save(ConfigurationSaveMode.Modified);
 

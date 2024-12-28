@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
@@ -13,9 +14,9 @@ namespace DK2_Utils
         internal string rootModsFolder { get; set; }
         internal SharedFuncs shared { get; set; }
 
-        public SupplyEditor(string _rootModsFolder, SharedFuncs _shared)
+        public SupplyEditor(SharedFuncs _shared)
         {
-            rootModsFolder = _rootModsFolder;
+            rootModsFolder = ConfigurationManager.AppSettings["costumModsFolder"];
             shared = _shared;
         }
 

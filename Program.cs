@@ -11,20 +11,28 @@ namespace DK2_Utils
         static void Main(string[] args)
         {
             SupplyEditor supplyEditor = null;
+            TracerBugFix tracerBugFix = null;
+
+            string firstLaunch = ConfigurationManager.AppSettings["firstLaunch"];
+
+            bool IsfirstLaunch = Convert.ToBoolean(firstLaunch);
 
             //Init some values and method instances if its first launch
-            if (ConfigurationManager.AppSettings["firstLaunch"] == "true")
+            if (IsfirstLaunch == true)
             {
                 //its the first launch
                 GetSetUserLanguage();
-                supplyEditor = new SupplyEditor(GetUserModsFolder(), shared);
+                GetUserModsFolder();
+                supplyEditor = new SupplyEditor(shared);
+                tracerBugFix = new TracerBugFix(shared);
                 shared.SetAppSetting("firstLaunch", "false");
             }
             else
             {
                 //its not the first launch
                 SharedFuncs.culture = ConfigurationManager.AppSettings["culture_string"];
-                supplyEditor = new SupplyEditor(GetUserModsFolder(), shared);
+                supplyEditor = new SupplyEditor(shared);
+                tracerBugFix = new TracerBugFix(shared);
             }
 
             Console.CursorVisible = true;
@@ -51,7 +59,7 @@ namespace DK2_Utils
                         supplyEditor.EditSupply();
                         break;
                     case 1:
-                        Console.WriteLine("[PlaceHolder] IoV Tracer BugFix");
+                        tracerBugFix.EditTracerBug();
                         Console.ReadLine();
                         break;
                     case 2:
@@ -99,7 +107,7 @@ namespace DK2_Utils
             shared.SetAppSetting("culture_string", culture);
         }
 
-        public static string GetUserModsFolder()
+        public static void GetUserModsFolder()
         {
             while (true)
             {
@@ -110,9 +118,8 @@ namespace DK2_Utils
                 if (Directory.Exists(path))
                 {
                     shared.SetAppSetting("costumModsFolder", path);
-                    return path;
+                    return;
                 }
-                    
 
                 Console.WriteLine(shared.GetLocalString("invalid_path"));
             }

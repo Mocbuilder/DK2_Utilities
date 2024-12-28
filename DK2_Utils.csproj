@@ -8,6 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="App.config" />
     <None Remove="localization.json" />
   </ItemGroup>
 
@@ -17,6 +18,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Include="App.config">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Content>
     <Content Include="localization.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

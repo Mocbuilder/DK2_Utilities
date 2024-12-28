@@ -9,7 +9,8 @@
     "supplyEditor_fileNotUpdated": "No changes made in: ",
     "supplyEditor_fileError": "There was an error with ",
     "supplyEditor_finished": "Finished editing Supply values.",
-    "invalid_path": "Invalid path."
+    "invalid_path": "Invalid path.",
+    "setAppSetting_keyNotFound": "SetAppSetting: Key not found: "
   },
   "de-GER": {
     "menuItem_supply": "Supply bearbeiten",
