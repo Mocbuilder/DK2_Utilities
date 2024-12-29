@@ -1,6 +1,18 @@
 # DK2 Utilities
 DK2 Utilities is a collection of tools for Door Kickers 2. In the current version v1.0 there are two features, with more to be added in future updates.
 
+# Installation
+There are 2 ways that you can use DK2 Utilities. Regardless of which way you choose, it always needs to be run as administrator. 
+
+## 1. Installer
+- Download the newest Installer from the Releases and run it
+- Follow the instructions in the installer
+- Run the Program as administrator
+
+## 2. Portable Installation
+- Download the newest portable.zip from the Releases and unpack it
+- Run DK2_Utils.exe as administrator
+
 # Features
 ## Supply Editor
 In Door Kickers 2, every soldier that you place costs one (sometimes a half or two) supply points. These values are assigned to Unit Classes, and are handled numerically in the game's code.
@@ -16,6 +28,9 @@ According to the error the Tracer for the bullet cannot be found. To fix it, thi
 # FAQ
 ## There was an Update for a mod/the game, do I have to run the program again ?
 Yes, do to the files which are being modified getting replaced when a mod or the game gets updated, you will have to run the program again.
+
+## Why does it have to be run as administrator ?
+Do to the program modifying files, it needs to have administrator permissions.
 
 # ToDo/Confirmed Feature Requests
 - Include base-game units in Supply Editor
