@@ -16,3 +16,7 @@ According to the error the Tracer for the bullet cannot be found. To fix it, thi
 # FAQ
 ## There was an Update for a mod/the game, do I have to run the program again ?
 Yes, do to the files which are being modified getting replaced when a mod or the game gets updated, you will have to run the program again.
+
+# ToDo/Confirmed Feature Requests
+- Include base-game units in Supply Editor
+- Choose which folders/mods to apply the supply edit to
