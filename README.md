@@ -26,10 +26,10 @@ One of the most popular and most depended on mods for DK2 is IoV, or Instruments
 According to the error the Tracer for the bullet cannot be found. To fix it, this feature simply replaces all mentions of the specific buggy Tracers in the code with the base-game Tracers.
 
 # FAQ
-## There was an Update for a mod/the game, do I have to run the program again ?
+#### There was an Update for a mod/the game, do I have to run the program again ?
 Yes, do to the files which are being modified getting replaced when a mod or the game gets updated, you will have to run the program again.
 
-## Why does it have to be run as administrator ?
+#### Why does it have to be run as administrator ?
 Do to the program modifying files, it needs to have administrator permissions.
 
 # ToDo/Confirmed Feature Requests
