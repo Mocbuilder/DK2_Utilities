@@ -10,7 +10,8 @@
     "supplyEditor_fileError": "There was an error with ",
     "supplyEditor_finished": "Finished editing Supply values.",
     "invalid_path": "Invalid path.",
-    "setAppSetting_keyNotFound": "SetAppSetting: Key not found: "
+    "setAppSetting_keyNotFound": "SetAppSetting: Key not found: ",
+    "supplyEditor_applyToVanilla":  "Also apply this to the vanilla Units (y/n)?"
   },
   "de-GER": {
     "menuItem_supply": "Supply bearbeiten",
@@ -22,6 +23,7 @@
     "supplyEditor_fileNotUpdated": "Keine Modifizierungen in: ",
     "supplyEditor_fileError": "Es gab einen Fehler mit ",
     "supplyEditor_finished": "Supply-Werte erfolgreich modifiziert.",
-    "invalid_path": "Nicht valider Pfad."
+    "invalid_path": "Nicht valider Pfad.",
+    "supplyEditor_applyToVanilla": "Auch Werte für Vanilla-Einheiten ändern (y/n)?"
   }
 }
