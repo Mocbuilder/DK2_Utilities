@@ -1,5 +1,6 @@
 # DK2 Utilities
 DK2 Utilities is a collection of tools for Door Kickers 2. In the current version v1.0 there are two features, with more to be added in future updates.
+Your AntiVirus might give you a false-positive after downloading.
 
 # Installation
 There are 2 ways that you can use DK2 Utilities. Regardless of which way you choose, it always needs to be run as administrator. 
