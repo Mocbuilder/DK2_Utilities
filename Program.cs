@@ -72,7 +72,7 @@ namespace DK2_Utils
 
         static void GetSetUserLanguage()
         {
-            //Ask the User what language he wants and set the culture string in shared appropriatly
+            //Ask the User what language he wants and set the culture string in shared based on that
             string culture;
 
             string[] languages = new string[]
