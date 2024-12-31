@@ -11,35 +11,30 @@ namespace DK2_Utils
 {
     public class SupplyEditor
     {
-        internal string rootModsFolder { get; set; }
+        internal string gameFolder { get; set; }
         internal SharedFuncs shared { get; set; }
 
         public SupplyEditor(SharedFuncs _shared)
         {
-            rootModsFolder = ConfigurationManager.AppSettings["costumModsFolder"];
             shared = _shared;
         }
 
 
         public void EditSupply() 
         {
-            (string, string) userInput = GetUserInput();
-            string newValue = userInput.Item1;
-            string gameDirectory = userInput.Item2;
-
-
-            //do everything that it does beneath this comment for gamefolder/vanilla units too
-            string[] files = Directory.GetFiles(rootModsFolder, "*.xml", SearchOption.AllDirectories);
+            string userInput = GetUserInput();
+            
+            string[] files = Directory.GetFiles(userInput, "*.xml", SearchOption.AllDirectories);
             
             foreach (string filePath in files)
             {
-                UpdateSupplyValue(filePath, newValue);
+                UpdateSupplyValue(filePath, userInput);
             }
             Console.WriteLine(shared.GetLocalString("supplyEditor_finished"));
             Console.ReadLine();
         }
 
-        internal (string, string) GetUserInput()
+        internal string GetUserInput()
         {
             while (true)
             {
@@ -65,11 +60,11 @@ namespace DK2_Utils
                 Console.WriteLine(shared.GetLocalString("supplyEditor_applyToVanilla"));
                 string inputVanilla = Console.ReadLine();
                 if (inputVanilla == "n")
-                    return (resultSupplyValue, "");
+                    return resultSupplyValue;
 
-                resultGameFolder = Directory.GetParent(ConfigurationManager.AppSettings["costumModFolder"]).ToString();
+                resultGameFolder = shared.GetAppSetting("costumGameFolder");
 
-                return (resultSupplyValue, resultGameFolder);
+                return resultSupplyValue;
             }
         }
 

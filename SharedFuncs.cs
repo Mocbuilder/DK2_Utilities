@@ -47,5 +47,23 @@ namespace DK2_Utils
             //refresh app.config in memory
             ConfigurationManager.RefreshSection("appSettings");
         }
+
+        public string GetAppSetting(string name)
+        {
+            try
+            {
+                string result = ConfigurationManager.AppSettings[name];
+
+                if (name == "costumModsFolder")
+                    result = result + "\\mods";
+
+                return result;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+                return "";
+            }
+        }
     }
 }
