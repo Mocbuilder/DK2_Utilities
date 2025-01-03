@@ -11,7 +11,7 @@ namespace DK2_Utils
 {
     public class SupplyEditor
     {
-        internal string gameFolder { get; set; }
+        internal string folderPath { get; set; }
         internal SharedFuncs shared { get; set; }
 
         public SupplyEditor(SharedFuncs _shared)
@@ -24,7 +24,7 @@ namespace DK2_Utils
         {
             string userInput = GetUserInput();
             
-            string[] files = Directory.GetFiles(userInput, "*.xml", SearchOption.AllDirectories);
+            string[] files = Directory.GetFiles(folderPath, "*.xml", SearchOption.AllDirectories);
             
             foreach (string filePath in files)
             {
@@ -57,13 +57,17 @@ namespace DK2_Utils
                     Console.WriteLine(ex);
                 }
 
+                resultSupplyValue = newValue.ToString();
+
                 Console.WriteLine(shared.GetLocalString("supplyEditor_applyToVanilla"));
                 string inputVanilla = Console.ReadLine();
                 if (inputVanilla == "n")
+                {
+                    folderPath = shared.GetAppSetting("costumModsFolder");
                     return resultSupplyValue;
+                }
 
-                resultGameFolder = shared.GetAppSetting("costumGameFolder");
-
+                folderPath = shared.GetAppSetting("costumGameFolder");
                 return resultSupplyValue;
             }
         }

@@ -3,7 +3,7 @@
     "menuItem_supply": "Supply Editor",
     "menuItem_iov": "IoV Tracer Bugfix",
     "menuItem_exit": "Exit",
-    "question_modsFolder": "Path to your mods folder:",
+    "question_gameFolder": "Path to your game folder (contains the DoorKickers2.exe):",
     "supplyEditor_newSupplyValue": "To learn how the values relate to the unit points in-game, please read the documentation\nEnter the new supply value:",
     "supplyEditor_fileUpdated": "Updated supply values in: ",
     "supplyEditor_fileNotUpdated": "No changes made in: ",

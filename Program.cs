@@ -112,12 +112,12 @@ namespace DK2_Utils
             while (true)
             {
                 //ask for path to modsfolder and loop till its valid
-                Console.WriteLine(shared.GetLocalString("question_modsFolder"));
+                Console.WriteLine(shared.GetLocalString("question_gameFolder"));
                 string path = Console.ReadLine();
 
                 if (Directory.Exists(path))
                 {
-                    shared.SetAppSetting("costumModsFolder", path);
+                    shared.SetAppSetting("costumGameFolder", path);
                     return;
                 }
 
