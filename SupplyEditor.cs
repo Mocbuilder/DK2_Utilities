@@ -14,6 +14,8 @@ namespace DK2_Utils
         internal string folderPath { get; set; }
         internal SharedFuncs shared { get; set; }
         internal Dictionary<string, string> mods = new Dictionary<string, string> { };
+        internal List<string> selectedPaths = new List<string> { };
+        internal bool selectMods = true;
 
         public SupplyEditor(SharedFuncs _shared)
         {
@@ -24,9 +26,19 @@ namespace DK2_Utils
         public void EditSupply() 
         {
             string userInput = GetUserInput();
-            
             string[] files = Directory.GetFiles(folderPath, "*.xml", SearchOption.AllDirectories);
+
+            if (selectMods == true)
+            {
+                GetAvailableMods();
+                GetModSelection();
+
+                //get values from selectedPaths and put them into files
+                files = Array.Empty<string>();
+                files = selectedPaths.ToArray();
+            }
             
+
             foreach (string filePath in files)
             {
                 UpdateSupplyValue(filePath, userInput);
@@ -69,6 +81,15 @@ namespace DK2_Utils
                 }
 
                 folderPath = shared.GetAppSetting("costumGameFolder");
+
+                Console.WriteLine(shared.GetLocalString(""));
+                string inputSelect = Console.ReadLine();
+                if (inputSelect == "n")
+                {
+                    selectMods = false;
+                    return resultSupplyValue;
+                }
+
                 return resultSupplyValue;
             }
         }
@@ -114,7 +135,7 @@ namespace DK2_Utils
 
         internal void GetAvailableMods()
         {
-            string[] files = Directory.GetFiles(shared.GetAppSetting("costumModsFolder"), "mod.xml", SearchOption.AllDirectories);
+            string[] files = Directory.GetFiles(folderPath, "mod.xml", SearchOption.AllDirectories);
 
             try
             {
@@ -124,8 +145,6 @@ namespace DK2_Utils
 
                     var classElements = xmlDoc.Descendants("Mod")
                                               .Where(e => e.Attribute("title") != null);
-
-                    bool changesMade = false;
 
                     foreach (var classElement in classElements)
                     {
@@ -139,6 +158,11 @@ namespace DK2_Utils
             {
                 Console.WriteLine(shared.GetLocalString("supplyEditor_fileError") + $"indexing all available mods: \n{ex}\n");
             }
+        }
+
+        static void GetModSelection()
+        {
+
         }
     }
 }

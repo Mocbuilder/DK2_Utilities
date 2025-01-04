@@ -52,10 +52,14 @@ namespace DK2_Utils
         {
             try
             {
-                string result = ConfigurationManager.AppSettings[name];
-
+                string result = String.Empty;
                 if (name == "costumModsFolder")
+                {
+                    result = ConfigurationManager.AppSettings["costumGameFolder"];
                     result = result + "\\mods";
+                }
+
+                result = ConfigurationManager.AppSettings[name];
 
                 return result;
             }
