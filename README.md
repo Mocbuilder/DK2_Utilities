@@ -1,3 +1,7 @@
+> [!CAUTION]
+> # WARNING
+> ### Since the 1.0 Update mods are installed and managed through the Steam-Workshop. Because of that, this tool is currently broken. Maybe ill fix it to make the editing functions available for 1.0 mods, but I cant promise anything.
+
 # DK2 Utilities
 DK2 Utilities is a collection of tools for Door Kickers 2. In the current version v1.0 there are two features, with more to be added in future updates.
 Your AntiVirus might give you a false-positive after downloading.
