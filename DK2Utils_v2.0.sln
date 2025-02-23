@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.12.35527.113 d17.12
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DK2Utils_Shared", "DK2Utils_Shared\DK2Utils_Shared.csproj", "{3473B55D-3D3F-45D3-9507-C3CDB7419EEB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XMLEditor", "XMLEditor\XMLEditor.csproj", "{9BD795C1-206D-404A-96D7-F5600AB2BE9C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3473B55D-3D3F-45D3-9507-C3CDB7419EEB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3473B55D-3D3F-45D3-9507-C3CDB7419EEB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3473B55D-3D3F-45D3-9507-C3CDB7419EEB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3473B55D-3D3F-45D3-9507-C3CDB7419EEB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9BD795C1-206D-404A-96D7-F5600AB2BE9C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9BD795C1-206D-404A-96D7-F5600AB2BE9C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9BD795C1-206D-404A-96D7-F5600AB2BE9C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9BD795C1-206D-404A-96D7-F5600AB2BE9C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
