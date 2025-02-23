@@ -79,7 +79,7 @@ namespace XMLEditor
             Console.WriteLine("test");
         }
         #endregion  temp test stuff incl main
-
+        //asd
         public List<Squad> GetSelectSquads()
         {
             List<Squad> availableSquads = new List<Squad>();
