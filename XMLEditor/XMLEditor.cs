@@ -79,7 +79,7 @@ namespace XMLEditor
             Console.WriteLine("test");
         }
         #endregion  temp test stuff incl main
-        //asd
+
         public List<Squad> GetSelectSquads()
         {
             List<Squad> availableSquads = new List<Squad>();
@@ -118,13 +118,77 @@ namespace XMLEditor
             var rosterElement = rosterxml.Descendants("Roster");
             var SquadElements = rosterElement.Descendants("Squad");
 
-            foreach(var tempsquad in SquadElements)
+            foreach (var tempsquad in SquadElements)
             {
-                if(tempsquad.Attribute("id").Value == squad.ID)
+                if (tempsquad.Attribute("id").Value == squad.ID)
                 {
                     tempsquad.Attribute("battlehonors").Value = newValue.ToString();
                 }
             }
+
+            rosterxml.Save(DK2Utils_Shared.Filepaths.roster);
+        }
+
+        public void EditSquadSupplyValue(string filePath, Dictionary<string, int> unitValues)
+        {
+            XDocument unitxml = new XDocument();
+            unitxml = XDocument.Load(filePath);
+
+            var unitsElement = unitxml.Descendants("Units");
+            var unitElements = unitsElement.Descendants("Unit");
+
+            foreach (var unit in unitElements)
+            {
+                if (!unitValues.ContainsKey(unit.Attribute("name").Value))
+                    continue;
+
+                var classesElement = unit.Descendants("Classes");
+                var classElements = classesElement.Descendants("Class");
+
+                foreach (var singleClass in classElements)
+                {
+                    singleClass.Attribute("supply").Value = unitValues[unit.Attribute("name").Value].ToString();
+                }
+            }
+
+            unitxml.Save(filePath);
+        }
+
+        public List<string> GetUnitXMLFiles()
+        {
+            List<string> unitXMLPaths = new List<string>();
+
+            string[] files = Directory.GetFiles(DK2Utils_Shared.Filepaths.defaultWorkshop, "*.xml");
+            foreach (var file in files)
+            {
+                if (!file.EndsWith("unit.xml"))
+                    continue;
+
+                unitXMLPaths.Add(file);
+            }
+
+            return unitXMLPaths;
+        }
+
+        public List<string> GetUnitXMLFiles(string costumPath)
+        {
+            List<string> unitXMLPaths = new List<string>();
+
+            string[] files = Directory.GetFiles(costumPath, "*.xml");
+            foreach (var file in files)
+            {
+                if (!file.EndsWith("unit.xml"))
+                    continue;
+
+                unitXMLPaths.Add(file);
+            }
+
+            return unitXMLPaths;
+        }
+
+        public void GetTrooperStatistics()
+        {
+
         }
     }
 }
