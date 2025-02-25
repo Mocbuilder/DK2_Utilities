@@ -1,5 +1,6 @@
 ﻿
 
+using DK2Utils_Shared;
 using System;
 using System.Transactions;
 using System.Xml.Linq;
@@ -104,6 +105,7 @@ namespace XMLEditor
                 if (squad.IsSelected)
                 {
                     selectedSquads.Add(squad);
+                    squad.IsSelected = false;
                 }
             }
 
@@ -184,11 +186,6 @@ namespace XMLEditor
             }
 
             return unitXMLPaths;
-        }
-
-        public void GetTrooperStatistics()
-        {
-
         }
     }
 }
