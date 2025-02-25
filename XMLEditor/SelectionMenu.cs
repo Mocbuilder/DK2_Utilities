@@ -35,7 +35,7 @@ namespace XMLEditor
                 for (int i = 0; i < Squads.Count; i++)
                 {
                     if (i == index)
-                        Console.ForegroundColor = ConsoleColor.Yellow; // Highlight current selection
+                        Console.ForegroundColor = ConsoleColor.Blue; // Highlight current selection
 
                     Console.Write(Squads[i].IsSelected ? "[X] " : "[ ] ");
                     Console.WriteLine($"{Squads[i].Name} ({Squads[i].Unit})");

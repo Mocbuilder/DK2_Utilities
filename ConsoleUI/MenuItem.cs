@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ConsoleUI
 {
-    internal class MenuItem
+    public class MenuItem
     {
         public string Name { get; set; }
         public bool IsSelected { get; set; }

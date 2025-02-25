@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ConsoleUI
 {
-    internal class ListMenu
+    public class ListMenu
     {
         List<MenuItem> Items { get; set; }
 
@@ -29,7 +29,7 @@ namespace ConsoleUI
                 for (int i = 0; i < Items.Count; i++)
                 {
                     if (i == index)
-                        Console.ForegroundColor = ConsoleColor.Yellow; // Highlight current selection
+                        Console.ForegroundColor = ConsoleColor.Blue; // Highlight current selection
 
                     Console.WriteLine($"{Items[i].Name}");
 
@@ -50,7 +50,6 @@ namespace ConsoleUI
                         Items[index].Action.Invoke();
                         break;
                 }
-
             };
         }
     }
